@@ -47,7 +47,7 @@ public class JarlsbergOpmode extends OpMode {
           leftBack.setPower(y-x+rx);
           rightBack.setPower(y+x-rx);
 
-          if(FourBarRight.getCurrentPosition() <= 10) {
+          if(FourBarRight.getCurrentPosition() <= 0.1) {
               FourBarRight.setPower(rT);
               FourBarLeft.setPower(rT);
           }
