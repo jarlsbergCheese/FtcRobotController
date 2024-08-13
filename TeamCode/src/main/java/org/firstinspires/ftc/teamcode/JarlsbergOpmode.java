@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 @TeleOp(name="jarlsberg")
 public class JarlsbergOpmode extends OpMode {
@@ -21,13 +22,15 @@ public class JarlsbergOpmode extends OpMode {
         leftBack = hardwareMap.get(DcMotorEx.class, "leftRear");
         rightBack = hardwareMap.get(DcMotorEx.class, "rightRear");
 
+        rightFront.setDirection(DcMotorEx.Direction.REVERSE);
+        rightBack.setDirection(DcMotorEx.Direction.REVERSE);
     }
 
     @Override
     public void loop() {
 
-          float x = -gamepad1.left_stick_y;
-          float y = gamepad1.left_stick_x;
+          float x = gamepad1.left_stick_x;
+          float y = -gamepad1.left_stick_y;
 
           float rx = gamepad1.right_stick_x;
 
