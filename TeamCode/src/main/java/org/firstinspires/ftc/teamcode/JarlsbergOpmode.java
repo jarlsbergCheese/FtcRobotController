@@ -31,10 +31,10 @@ public class JarlsbergOpmode extends OpMode {
 
           float rx = gamepad1.right_stick_x;
 
-          leftFront.setPower(y+x);
-          rightFront.setPower(y-x);
-          leftBack.setPower(y-x);
-          rightBack.setPower(y+x);
+          leftFront.setPower(y+x+rx);
+          rightFront.setPower(y-x+rx);
+          leftBack.setPower(y-x-rx);
+          rightBack.setPower(y+x-rx);
     }
 
 }
