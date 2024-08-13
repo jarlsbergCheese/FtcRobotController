@@ -26,8 +26,8 @@ public class JarlsbergOpmode extends OpMode {
     @Override
     public void loop() {
 
-          float x = gamepad1.left_stick_x;
-          float y = -gamepad1.left_stick_y;
+          float x = gamepad1.left_stick_y;
+          float y = -gamepad1.left_stick_x;
 
           float rx = gamepad1.right_stick_x;
 
