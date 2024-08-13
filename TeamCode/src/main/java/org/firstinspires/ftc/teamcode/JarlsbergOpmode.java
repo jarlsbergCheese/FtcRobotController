@@ -13,6 +13,8 @@ public class JarlsbergOpmode extends OpMode {
     private DcMotorEx rightFront = null;
     private DcMotorEx leftBack = null;
     private DcMotorEx rightBack = null;
+    private DcMotorEx FourBarRight = null;
+    private DcMotorEx FourBarLeft = null;
 
     @Override
     public void init() {
@@ -22,7 +24,10 @@ public class JarlsbergOpmode extends OpMode {
         leftBack = hardwareMap.get(DcMotorEx.class, "leftRear");
         rightBack = hardwareMap.get(DcMotorEx.class, "rightRear");
 
-        leftFront.setDirection(DcMotorEx.Direction.REVERSE);
+        FourBarRight = hardwareMap.get(DcMotorEx.class, "fourBarRight");
+        FourBarLeft = hardwareMap.get(DcMotorEx.class, "fourBarLeft");
+
+        rightFront.setDirection(DcMotorEx.Direction.REVERSE);
         leftBack.setDirection(DcMotorEx.Direction.REVERSE);
     }
 
@@ -31,13 +36,22 @@ public class JarlsbergOpmode extends OpMode {
 
           float x = gamepad1.left_stick_x;
           float y = -gamepad1.left_stick_y;
-
           float rx = gamepad1.right_stick_x;
 
+          float rT = gamepad1.left_trigger;
+          float lT = gamepad1.right_trigger;
+
           leftFront.setPower(y+x+rx);
-          rightFront.setPower(y-x+rx);
-          leftBack.setPower(y-x-rx);
+          rightFront.setPower(y-x-rx);
+          leftBack.setPower(y-x+rx);
           rightBack.setPower(y+x-rx);
+
+          FourBarRight.setPower(rT);
+          FourBarLeft.setPower(rT);
+
+          FourBarRight.setPower(-lT);
+          FourBarLeft.setPower(-lT);
+
     }
 
 }
