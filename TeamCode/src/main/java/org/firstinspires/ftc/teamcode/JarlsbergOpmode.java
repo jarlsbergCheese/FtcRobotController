@@ -29,6 +29,7 @@ public class JarlsbergOpmode extends OpMode {
 
         rightFront.setDirection(DcMotorEx.Direction.REVERSE);
         leftBack.setDirection(DcMotorEx.Direction.REVERSE);
+        FourBarLeft.setDirection(DcMotorEx.Direction.REVERSE);
     }
 
     @Override
@@ -46,8 +47,10 @@ public class JarlsbergOpmode extends OpMode {
           leftBack.setPower(y-x+rx);
           rightBack.setPower(y+x-rx);
 
-          FourBarRight.setPower(rT);
-          FourBarLeft.setPower(rT);
+          if(FourBarRight.getCurrentPosition() <= 10) {
+              FourBarRight.setPower(rT);
+              FourBarLeft.setPower(rT);
+          }
 
           FourBarRight.setPower(-lT);
           FourBarLeft.setPower(-lT);
